@@ -1,0 +1,41 @@
+[project]
+name = "paper-trading-agent"
+version = "0.1.0"
+description = "Rule-based crypto spot paper trading bot with backtest and replay modes."
+requires-python = ">=3.11"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Codex" }]
+dependencies = ["pandas>=2.2", "pyarrow>=16.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools]
+packages = ["features", "research", "strategies", "tools", "freqtrade_adapter"]
+py-modules = [
+    "agent",
+    "approval_signing",
+    "backtest",
+    "broker_paper",
+    "crypto_rules",
+    "data_provider",
+    "execution_model",
+    "main",
+    "market_regime",
+    "models",
+    "order_gateway",
+    "paper_replay",
+    "reports",
+    "research_config",
+    "risk_manager",
+    "strategy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

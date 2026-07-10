@@ -1,0 +1,30 @@
+This is a rule-based crypto spot paper trading bot.
+- No AI is used for trading decisions.
+- Never implement live trading.
+- Never connect real brokers.
+- Never use real API keys.
+- No real exchange API keys.
+- Never add futures.
+- Never add margin.
+- Never add leverage.
+- Never bypass OrderGateway.
+- Never call BrokerPaper.submit_order directly outside gateway/tests.
+- All orders must pass RiskManager.
+- Supported symbols examples: BTCUSDT, ETHUSDT, SOLUSDT.
+- Supported data source: CSV historical candles.
+- Market regime filter is rule-based only: ADX, ATR, EMA slope.
+- Volume confirmation is rule-based only: current volume must be at least SMA20 volume.
+- HIGH_VOLATILITY must block strategy trades.
+- Research validation mode is analysis-only; it must not change BrokerPaper, RiskManager, crypto spot rules, or live-safety.
+- Historical data downloader may only download OHLCV candles and save CSV files.
+- Historical data downloader must not place orders, store API keys, or connect live trading.
+- Max risk per trade: 1%.
+- Max position size: 10%.
+- Stop-loss is required.
+- If tests fail, do not run the bot.
+- paper_replay must use frozen config/selected_candidate.json; do not override strategy or params at runtime.
+- Freqtrade is optional infrastructure only: use the pinned Docker image, paper-only config and `tools/freqtrade_safe.py`.
+- Never enable Freqtrade live trading, FreqAI, futures, margin, leverage, shorting, remote pairlists or non-empty exchange credentials.
+- Freqtrade dry-run remains blocked until a frozen `freqtrade_selected_candidate.json` passes hash, risk-gap, lookahead and recursive checks.
+- Allowed modes: report_only, paper, backtest, report, compare, walk_forward, sweep, robustness, select_candidate, paper_replay, feature_report, strategy_report, filter_sweep, regime_report, regime_backtest, regime_attribution, trade_lifecycle, exit_analysis, position_management, monte_carlo, entry_quality, signal_quality, entry_timing, regime_transition, opportunity_analysis, transition_entry, trend_confirmation_delay, exit_optimization, entry_threshold, multi_asset_validation, portfolio_validation, market_microstructure, benchmark_suite, freqtrade_data_compare, freqtrade_data_diagnose, freqtrade_dual_benchmark.
+- Forbidden modes: live, real, production.

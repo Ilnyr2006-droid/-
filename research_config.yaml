@@ -1,0 +1,11 @@
+walk_forward_train_size: 240
+walk_forward_test_size: 120
+min_trades_by_timeframe:
+  1m: 120
+  5m: 100
+  15m: 80
+  1h: 10
+  4h: 5
+  1d: 3
+volume_filter_multiplier: 0.8
+allow_high_volatility_research_mode: true

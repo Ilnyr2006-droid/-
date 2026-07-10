@@ -1,0 +1,9 @@
+services:
+  freqtrade:
+    image: freqtradeorg/freqtrade:2026.5.1
+    working_dir: /freqtrade
+    volumes:
+      - ./freqtrade_user_data:/freqtrade/user_data
+      - ./freqtrade_adapter:/freqtrade/freqtrade_adapter:ro
+    command: ["--help"]
+    restart: "no"
